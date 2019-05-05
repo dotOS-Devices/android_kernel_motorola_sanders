@@ -182,6 +182,11 @@ config CPU_FREQ_DEFAULT_GOV_ELECTROUTIL
 	  have a look at the help section of that governor. The fallback
 	  governor will be 'performance'.
 
+config CPU_FREQ_DEFAULT_GOV_SMARTMAX_EPS
+        bool "smartmax_eps"
+        select CPU_FREQ_GOV_SMARTMAX_EPS
+        help
+			Use the CPUFreq governor 'smartmax_eps' as default. 
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -267,6 +272,11 @@ config CPU_FREQ_GOV_ALUCARD
 	tristate "'alucard' cpufreq governor"
 	depends on CPU_FREQ
 	select CPU_FREQ_GOV_COMMON
+
+config CPU_FREQ_GOV_SMARTMAX_EPS
+        tristate "'smartmax_eps' cpufreq governor"
+        depends on CPU_FREQ
+        help
 
 config CPU_FREQ_GOV_CONSERVATIVE
 	tristate "'conservative' cpufreq governor"
